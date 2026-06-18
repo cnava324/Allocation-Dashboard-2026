@@ -10,6 +10,7 @@
 
 
 
+
 :root{
   --ink:#1C1917;--ink2:#44403C;--ink3:#78716C;
   --paper:#FAF9F6;--paper2:#F0EDE6;--paper3:#E7E3DA;--border:#D6D3CA;
@@ -172,18 +173,29 @@ td.week-new{background:#FFFBEB}
 .tab-btn .tab-badge-pending{background:rgba(255,255,255,.06);color:rgba(245,240,232,.35)}
 .tab-panel{display:none}
 .tab-panel.active{display:block}
+
+.tab-nav{background:var(--ink);padding:0 36px;display:flex;align-items:flex-end;gap:2px;position:sticky;top:52px;z-index:99;border-top:1px solid rgba(255,255,255,.08)}
+.tab-btn{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;letter-spacing:.06em;color:rgba(245,240,232,.45);background:transparent;border:none;border-bottom:2px solid transparent;padding:10px 18px 9px;cursor:pointer;transition:color .15s,border-color .15s,background .15s;white-space:nowrap}
+.tab-btn:hover{color:rgba(245,240,232,.8);background:rgba(255,255,255,.06)}
+.tab-btn.active{color:#F5F0E8;border-bottom-color:var(--teal-m);background:rgba(255,255,255,.06)}
+.tab-btn .tab-badge{font-size:9px;padding:1px 5px;border-radius:3px;margin-left:6px;font-weight:600}
+.tab-btn.active .tab-badge-current{background:var(--teal-m);color:#fff}
+.tab-btn .tab-badge-done{background:rgba(255,255,255,.12);color:rgba(245,240,232,.55)}
+.tab-btn .tab-badge-final{background:#5B21B6;color:#fff}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
 </style>
 </head>
 <body>
 <div class="topbar">
   <div class="topbar-brand">Fine Fettle · 2026 Allocation Dashboard</div>
-  <div class="topbar-meta">JUNE 2026 · WHOLESALE + RETAIL vs S&amp;OP &amp; RF UPSIDE · WKS 1–3 OF 4 CONFIRMED</div>
+  <div class="topbar-meta">JUNE 2026 · WHOLESALE + RETAIL vs S&amp;OP &amp; RF UPSIDE · FINAL · ALL 4 WEEKS CONFIRMED</div>
 </div>
 <div class="tab-nav">
   <button class="tab-btn" onclick="showTab('wk1')" id="tab-wk1">JUNE WK 1 — 5/27<span class="tab-badge tab-badge-done">&#10003; Done</span></button>
   <button class="tab-btn" onclick="showTab('wk2')" id="tab-wk2">JUNE WK 2 — 6/3<span class="tab-badge tab-badge-done">&#10003; Done</span></button>
-  <button class="tab-btn active" onclick="showTab('wk3')" id="tab-wk3">JUNE WK 3 — 6/10<span class="tab-badge tab-badge-current active">&#9733; Current</span></button>
-  <button class="tab-btn" onclick="showTab('wk4')" id="tab-wk4">JUNE WK 4 — 6/17<span class="tab-badge tab-badge-pending">Pending</span></button>
+  <button class="tab-btn" onclick="showTab('wk3')" id="tab-wk3">JUNE WK 3 — 6/10<span class="tab-badge tab-badge-done">&#10003; Done</span></button>
+  <button class="tab-btn active" onclick="showTab('wk4')" id="tab-wk4">JUNE FINAL — 6/17<span class="tab-badge tab-badge-final">&#9733; Final</span></button>
 </div>
 <div id="panel-wk1" class="tab-panel">
 <div class="shell">
@@ -251,6 +263,8 @@ td.week-new{background:#FFFBEB}
 <div
 </div>
 <!-- WK2 -->
+<div
+</div>
 <div
 </div>
 <div id="panel-wk2" class="tab-panel">
@@ -760,7 +774,9 @@ td.week-new{background:#FFFBEB}
 
 </div>
 </div>
-<div id="panel-wk3" class="tab-panel active">
+<div
+</div>
+<div id="panel-wk3" class="tab-panel">
 <div class="shell">
   <div class="pg-hdr">
     <div><div class="pg-title">June 2026 — Weeks 1–3<br><em>Allocation vs Demand Plan</em></div></div>
@@ -1093,23 +1109,375 @@ td.week-new{background:#FFFBEB}
 </div>
 
 </div>
-<div id="panel-wk4" class="tab-panel">
+<div
+</div>
+<div id="panel-wk4" class="tab-panel active">
 <div class="shell">
   <div class="pg-hdr">
-    <div><div class="pg-title">June 2026 — Week 4<br><em>6/17/26 · Pending</em></div></div>
-    <div class="pg-meta">Wholesale: 6/17/26 tab · pending confirmation<br>Retail: Week of 6/17/26 · pending<br>Last updated: pending · 3 of 4 weeks confirmed</div>
-  </div>
-  <div class="banner">
-    <span>&#9432;</span>
-    <span><strong>Week 4 is pending.</strong> Upload the 6/17/26 WS Menu Planning tab screenshot and Distru retail CSV to update this tab.</span>
-  </div>
-  <div style="display:flex;align-items:center;justify-content:center;min-height:280px;flex-direction:column;gap:20px">
-    <div style="font-family:'DM Serif Display',serif;font-size:32px;color:var(--paper3)">Awaiting data</div>
-    <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);text-align:center;line-height:2.2;background:var(--white);border:1px solid var(--border);border-radius:8px;padding:20px 32px">
-      WS: Upload 6/17/26 Wholesale Menu Planning tab (Status=Confirmed rows)<br>
-      Retail: Upload Distru Product Sales Report for week of 6/17/26<br>
-      Dashboard will be updated and re-uploaded to GitHub Pages
+    <div><div class="pg-title">June 2026 — Final<br><em>All 4 Weeks Confirmed</em></div></div>
+    <div class="pg-meta">
+      Wholesale: Menu Planning — all 4 weeks confirmed · Status=Final<br>
+      Retail: Distru · 9 FF locations · wks 6/3 + 6/10 + 6/17 confirmed<br>
+      S&amp;OP: Supply &amp; Demand Summary · RF Upside: May Reforecast Summary tab · WS only<br>
+      Last updated: 6/17/26 · June allocation complete
     </div>
+  </div>
+
+  <div class="banner" style="background:var(--green-l);border-color:#BBF7D0;color:var(--green)">
+    <span>✓</span>
+    <span><strong>All 4 weeks confirmed. June is final.</strong> WS finished at 112.4% of RF Upside — first month to exceed the reforecast ceiling. 3.5g Flower (152.5%) and 7g Flower (155.1%) both exceeded RF Upside targets. 0.5g PRJs the only retail category to exceed S&amp;OP at 117.0%.</span>
+  </div>
+
+  <div class="kpi-strip">
+    <div class="kpi red"><div class="kpi-label">WS vs S&OP (Full Month)</div><div class="kpi-val red">46.4%</div><div class="kpi-sub">16,290u / 35,100u · 453 cases</div></div>
+    <div class="kpi" style="--kpi-color:var(--purple-m)"><div class="kpi-label">WS vs RF Upside (Full Month)</div><div class="kpi-val" style="color:var(--purple)">112.4%</div><div class="kpi-sub">16,290u / 14,499u — exceeded ✓</div></div>
+    <div class="kpi amber"><div class="kpi-label">Retail vs S&OP (Wks 2–4)</div><div class="kpi-val amber">26.9%</div><div class="kpi-sub">11,172u / 41,500u</div></div>
+    <div class="kpi" style="--kpi-color:var(--purple-m)"><div class="kpi-label">3.5g Flower WS (Final)</div><div class="kpi-val" style="color:var(--purple)">152.5%</div><div class="kpi-sub">5,550u / 3,639u RF Upside — exceeded ✓</div></div>
+    <div class="kpi" style="--kpi-color:var(--purple-m)"><div class="kpi-label">7g Flower WS (Final)</div><div class="kpi-val" style="color:var(--purple)">155.1%</div><div class="kpi-sub">2,910u / 1,876u RF Upside — exceeded ✓</div></div>
+    <div class="kpi green"><div class="kpi-label">0.5g PRJ Retail (Final)</div><div class="kpi-val green">117.0%</div><div class="kpi-sub">2,633u / 2,250u S&amp;OP — only RT cat exceeded</div></div>
+  </div>
+
+  <div class="legend">
+    <strong>Comparison lines:</strong>
+    <div class="legend-item"><span class="legend-dot" style="background:var(--red-m)"></span>Original S&amp;OP target</div>
+    <div class="legend-item"><span class="legend-dot" style="background:var(--teal-m)"></span>RF Upside (WS only · May Reforecast Summary)</div>
+    <div class="legend-item"><span class="legend-dot" style="background:var(--green-m)"></span>Retail S&amp;OP (original · no reforecast)</div>
+    <div class="legend-item"><span class="legend-dot" style="background:var(--purple-m)"></span>Exceeded RF Upside target</div>
+    <div class="legend-item" style="font-size:11px;color:var(--ink3);margin-left:8px">Base Case excluded throughout</div>
+  </div>
+
+  <!-- WHOLESALE FINAL TABLE -->
+  <div class="sec-hdr">Wholesale Allocations — Final <span class="sec-tag">All 4 weeks confirmed · vs S&amp;OP · vs RF Upside</span></div>
+  <div class="tbl-wrap"><table>
+    <thead><tr>
+      <th style="width:15%">Category</th>
+      <th class="r">5/27/26<span class="conf-badge">✓</span></th>
+      <th class="r">6/3/26<span class="conf-badge">✓</span></th>
+      <th class="r">6/10/26<span class="conf-badge">✓</span></th>
+      <th class="r">6/17/26<span class="conf-badge">✓</span></th>
+      <th class="r" style="border-left:1px solid var(--border)">Jun Cases</th>
+      <th class="r">Jun Units</th>
+      <th class="r sosp-col" style="border-left:1px solid #FECACA">S&amp;OP Target</th>
+      <th class="sosp-col" style="min-width:100px">vs S&amp;OP</th>
+      <th class="r up-col" style="border-left:1px solid #99F6E4">RF Upside</th>
+      <th class="up-col" style="min-width:100px">vs Upside</th>
+      <th>Final Notes</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td class="cat-cell">3.5g Flower</td>
+        <td class="r mono week-conf">35c / 1,050u</td><td class="r mono week-conf">30c / 900u</td>
+        <td class="r mono week-conf">30c / 900u</td><td class="r mono week-conf">90c / 2,700u</td>
+        <td class="r mono" style="border-left:1px solid var(--border);font-weight:700">185</td><td class="r mono" style="font-weight:700">5,550</td>
+        <td class="r mono sosp-bg">5,400u</td>
+        <td class="sosp-bg"><div class="bar-wrap"><div class="bar-track"><div class="bar-fill fill-green" style="width:100%"></div></div><span class="bar-pct" style="color:var(--green)">102.8% ✓</span></div></td>
+        <td class="r mono up-bg" style="color:var(--teal);font-weight:600">3,639u</td>
+        <td class="up-bg"><div class="bar-wrap"><div class="bar-track"><div class="bar-fill fill-green" style="width:100%"></div></div><span class="bar-pct" style="color:#5B21B6;font-weight:700">152.5% ✓</span></div></td>
+        <td style="font-size:11px;color:#5B21B6;font-weight:600">Date Night 40c + Irish Goodbye 30c + Early Bird 20c confirmed wk4</td>
+      </tr>
+      <tr>
+        <td class="cat-cell">7g Flower</td>
+        <td class="r mono zero week-conf">—</td><td class="r mono week-conf">67c / 2,010u</td>
+        <td class="r mono week-conf">20c / 600u</td><td class="r mono week-conf">10c / 300u</td>
+        <td class="r mono" style="border-left:1px solid var(--border);font-weight:700">97</td><td class="r mono" style="font-weight:700">2,910</td>
+        <td class="r mono sosp-bg">8,100u</td>
+        <td class="sosp-bg"><div class="bar-wrap"><div class="bar-track"><div class="bar-fill fill-red" style="width:35.9%"></div></div><span class="bar-pct" style="color:var(--red)">35.9%</span></div></td>
+        <td class="r mono up-bg" style="color:var(--teal);font-weight:600">1,876u</td>
+        <td class="up-bg"><div class="bar-wrap"><div class="bar-track"><div class="bar-fill fill-green" style="width:100%"></div></div><span class="bar-pct" style="color:#5B21B6;font-weight:700">155.1% ✓</span></div></td>
+        <td style="font-size:11px;color:#5B21B6;font-weight:600">Homebody 10c confirmed wk4 · 155.1% RF Upside ✓ · full month exceeded</td>
+      </tr>
+      <tr>
+        <td class="cat-cell">1g Prerolls</td>
+        <td class="r mono zero week-conf">—</td><td class="r mono week-conf">72c / 2,160u</td>
+        <td class="r mono zero week-conf">—</td><td class="r mono week-conf">20c / 600u</td>
+        <td class="r mono" style="border-left:1px solid var(--border);font-weight:700">92</td><td class="r mono" style="font-weight:700">2,760</td>
+        <td class="r mono sosp-bg">5,400u</td>
+        <td class="sosp-bg"><div class="bar-wrap"><div class="bar-track"><div class="bar-fill fill-amber" style="width:51.1%"></div></div><span class="bar-pct" style="color:var(--amber)">51.1%</span></div></td>
+        <td class="r mono up-bg" style="color:var(--teal);font-weight:600">3,189u</td>
+        <td class="up-bg"><div class="bar-wrap"><div class="bar-track"><div class="bar-fill fill-amber" style="width:86.5%"></div></div><span class="bar-pct" style="color:var(--amber)">86.5%</span></div></td>
+        <td style="font-size:11px;color:var(--amber)">Cloud 9 20c confirmed wk4 · 86.5% RF Upside · missed by 429u</td>
+      </tr>
+      <tr>
+        <td class="cat-cell">0.5g 7pk PRJs</td>
+        <td class="r mono week-conf">21c / 630u</td><td class="r mono week-conf">6c / 180u</td>
+        <td class="r mono zero week-conf">—</td><td class="r mono week-conf">10c / 300u</td>
+        <td class="r mono" style="border-left:1px solid var(--border);font-weight:700">37</td><td class="r mono" style="font-weight:700">1,110</td>
+        <td class="r mono sosp-bg">5,400u</td>
+        <td class="sosp-bg"><div class="bar-wrap"><div class="bar-track"><div class="bar-fill fill-red" style="width:20.6%"></div></div><span class="bar-pct" style="color:var(--red)">20.6%</span></div></td>
+        <td class="r mono up-bg" style="color:var(--teal);font-weight:600">1,736u</td>
+        <td class="up-bg"><div class="bar-wrap"><div class="bar-track"><div class="bar-fill fill-amber" style="width:63.9%"></div></div><span class="bar-pct" style="color:var(--amber)">63.9%</span></div></td>
+        <td style="font-size:11px;color:var(--amber)">Umami OG 10c confirmed wk4 · 63.9% RF Upside · 626u short</td>
+      </tr>
+      <tr>
+        <td class="cat-cell">1g Vapes (510)</td>
+        <td class="r mono week-conf">12c / 360u</td><td class="r mono week-conf">10c / 300u</td>
+        <td class="r mono zero week-conf">—</td><td class="r mono week-conf">20c / 600u</td>
+        <td class="r mono" style="border-left:1px solid var(--border);font-weight:700">42</td><td class="r mono" style="font-weight:700">1,260</td>
+        <td class="r mono sosp-bg">4,320u</td>
+        <td class="sosp-bg"><div class="bar-wrap"><div class="bar-track"><div class="bar-fill fill-red" style="width:29.2%"></div></div><span class="bar-pct" style="color:var(--red)">29.2%</span></div></td>
+        <td class="r mono up-bg" style="color:var(--teal);font-weight:600">1,359u</td>
+        <td class="up-bg"><div class="bar-wrap"><div class="bar-track"><div class="bar-fill fill-green" style="width:92.7%"></div></div><span class="bar-pct" style="color:var(--green)">92.7%</span></div></td>
+        <td style="font-size:11px;color:var(--green)">Blue Dream 10c + Purple Urkle 10c confirmed wk4 · near-miss at 92.7%</td>
+      </tr>
+      <tr>
+        <td class="cat-cell">1g Disposables (AURA)</td>
+        <td class="r mono zero week-conf">— (carry-in)</td><td class="r mono zero week-conf">— (carry-in)</td>
+        <td class="r mono zero week-conf">— (carry-in)</td><td class="r mono zero week-conf">— (carry-in)</td>
+        <td class="r mono zero" style="border-left:1px solid var(--border)">—</td>
+        <td class="r mono" style="font-weight:700;color:var(--teal)">2,700 ①</td>
+        <td class="r mono sosp-bg">2,700 / 6,480u</td>
+        <td class="sosp-bg"><div class="bar-wrap"><div class="bar-track"><div class="bar-fill fill-amber" style="width:41.7%"></div></div><span class="bar-pct" style="color:var(--amber)">41.7%</span></div></td>
+        <td class="r mono up-bg" style="color:var(--teal);font-weight:600">2,700u</td>
+        <td class="up-bg"><div class="bar-wrap"><div class="bar-track"><div class="bar-fill fill-green" style="width:100%"></div></div><span class="bar-pct" style="color:var(--green)">100% ✓</span></div></td>
+        <td style="font-size:11px;color:var(--teal)">① 2,700u carry-in = June RF Upside target met · next batch in production</td>
+      </tr>
+    </tbody>
+    <tfoot><tr class="tfoot">
+      <td class="cat-cell">TOTAL</td>
+      <td class="r mono week-conf">95c / 2,850u</td><td class="r mono week-conf">185c / 5,550u</td>
+      <td class="r mono week-conf">50c / 1,500u</td><td class="r mono week-conf">150c / 4,500u</td>
+      <td class="r mono" style="border-left:1px solid var(--border)">453</td><td class="r mono">16,290</td>
+      <td class="r mono sosp-bg">35,100u</td>
+      <td class="sosp-bg"><div class="bar-wrap"><div class="bar-track"><div class="bar-fill fill-amber" style="width:46.4%"></div></div><span class="bar-pct" style="color:var(--amber)">46.4%</span></div></td>
+      <td class="r mono up-bg" style="color:var(--teal);font-weight:600">14,499u</td>
+      <td class="up-bg"><div class="bar-wrap"><div class="bar-track"><div class="bar-fill fill-green" style="width:100%"></div></div><span class="bar-pct" style="color:#5B21B6;font-weight:700">112.4% ✓</span></div></td>
+      <td></td>
+    </tr></tfoot>
+  </table></div>
+
+  <!-- FINAL SUMMARY TABLE -->
+  <div class="sub-hdr">June final summary <span class="sub-tag">WS vs RF Upside · vs S&amp;OP · all categories</span></div>
+  <div class="tbl-wrap"><table>
+    <thead><tr>
+      <th style="width:16%">Category</th>
+      <th class="r">May Actuals<br>(RF Floor)</th>
+      <th class="r up-col" style="border-left:1px solid #99F6E4">RF Upside<br>Jun Target</th>
+      <th class="r" style="border-left:1px solid var(--border)">Jun Final<br>WS Units</th>
+      <th class="r up-col">vs RF Upside<br>Target</th>
+      <th class="up-col" style="min-width:100px">vs RF Upside %</th>
+      <th class="r sosp-col" style="border-left:1px solid #FECACA">S&amp;OP Target</th>
+      <th class="r sosp-col">vs S&amp;OP<br>Target</th>
+      <th class="sosp-col" style="min-width:100px">vs S&amp;OP %</th>
+      <th>June Final Result</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td class="cat-cell">3.5g Flower</td><td class="r mono">3,480u</td>
+        <td class="r mono up-bg" style="color:var(--teal);font-weight:600">3,639u</td>
+        <td class="r mono" style="border-left:1px solid var(--border);font-weight:700">5,550u</td>
+        <td class="r mono" style="background:var(--purple-l);color:#5B21B6;font-weight:700">+1,911u above</td>
+        <td style="background:var(--purple-l)"><div class="bar-wrap"><div class="bar-track"><div class="bar-fill fill-green" style="width:100%"></div></div><span class="bar-pct" style="color:#5B21B6;font-weight:700">152.5%</span></div></td>
+        <td class="r mono sosp-bg" style="color:var(--red)">5,400u</td>
+        <td class="r mono" style="background:var(--green-l);color:var(--green);font-weight:700">+150u above</td>
+        <td class="sosp-bg"><div class="bar-wrap"><div class="bar-track"><div class="bar-fill fill-green" style="width:100%"></div></div><span class="bar-pct" style="color:var(--green)">102.8% ✓</span></div></td>
+        <td><span class="pill p-purple">✓ EXCEEDED · Date Night + Irish Goodbye cleared wk4</span></td>
+      </tr>
+      <tr>
+        <td class="cat-cell">7g Flower</td><td class="r mono">810u</td>
+        <td class="r mono up-bg" style="color:var(--teal);font-weight:600">1,876u</td>
+        <td class="r mono" style="border-left:1px solid var(--border);font-weight:700">2,910u</td>
+        <td class="r mono" style="background:var(--purple-l);color:#5B21B6;font-weight:700">+1,034u above</td>
+        <td style="background:var(--purple-l)"><div class="bar-wrap"><div class="bar-track"><div class="bar-fill fill-green" style="width:100%"></div></div><span class="bar-pct" style="color:#5B21B6;font-weight:700">155.1%</span></div></td>
+        <td class="r mono sosp-bg" style="color:var(--red)">8,100u</td>
+        <td class="r mono sosp-bg" style="color:var(--red)">-5,190u short</td>
+        <td class="sosp-bg"><div class="bar-wrap"><div class="bar-track"><div class="bar-fill fill-red" style="width:35.9%"></div></div><span class="bar-pct" style="color:var(--red)">35.9%</span></div></td>
+        <td><span class="pill p-purple">✓ EXCEEDED · strongest month · 3 SKUs confirmed</span></td>
+      </tr>
+      <tr>
+        <td class="cat-cell">1g Prerolls</td><td class="r mono">1,740u</td>
+        <td class="r mono up-bg" style="color:var(--teal);font-weight:600">3,189u</td>
+        <td class="r mono" style="border-left:1px solid var(--border);font-weight:700">2,760u</td>
+        <td class="r mono up-bg" style="color:var(--amber)">-429u short</td>
+        <td class="up-bg"><div class="bar-wrap"><div class="bar-track"><div class="bar-fill fill-amber" style="width:86.5%"></div></div><span class="bar-pct" style="color:var(--amber)">86.5%</span></div></td>
+        <td class="r mono sosp-bg" style="color:var(--red)">5,400u</td>
+        <td class="r mono sosp-bg" style="color:var(--red)">-2,640u short</td>
+        <td class="sosp-bg"><div class="bar-wrap"><div class="bar-track"><div class="bar-fill fill-amber" style="width:51.1%"></div></div><span class="bar-pct" style="color:var(--amber)">51.1%</span></div></td>
+        <td><span class="pill p-amber">~ 86.5% · missed by 429u · Cloud 9 wk4 helped</span></td>
+      </tr>
+      <tr>
+        <td class="cat-cell">0.5g 7pk PRJs</td><td class="r mono">1,229u</td>
+        <td class="r mono up-bg" style="color:var(--teal);font-weight:600">1,736u</td>
+        <td class="r mono" style="border-left:1px solid var(--border);font-weight:700">1,110u</td>
+        <td class="r mono up-bg" style="color:var(--amber)">-626u short</td>
+        <td class="up-bg"><div class="bar-wrap"><div class="bar-track"><div class="bar-fill fill-amber" style="width:63.9%"></div></div><span class="bar-pct" style="color:var(--amber)">63.9%</span></div></td>
+        <td class="r mono sosp-bg" style="color:var(--red)">5,400u</td>
+        <td class="r mono sosp-bg" style="color:var(--red)">-4,290u short</td>
+        <td class="sosp-bg"><div class="bar-wrap"><div class="bar-track"><div class="bar-fill fill-red" style="width:20.6%"></div></div><span class="bar-pct" style="color:var(--red)">20.6%</span></div></td>
+        <td><span class="pill p-amber">~ 63.9% · Umami OG cleared too late to close gap</span></td>
+      </tr>
+      <tr>
+        <td class="cat-cell">1g Vapes (510)</td><td class="r mono">1,080u</td>
+        <td class="r mono up-bg" style="color:var(--teal);font-weight:600">1,359u</td>
+        <td class="r mono" style="border-left:1px solid var(--border);font-weight:700">1,260u</td>
+        <td class="r mono up-bg" style="color:var(--green)">-99u short</td>
+        <td class="up-bg"><div class="bar-wrap"><div class="bar-track"><div class="bar-fill fill-green" style="width:92.7%"></div></div><span class="bar-pct" style="color:var(--green)">92.7%</span></div></td>
+        <td class="r mono sosp-bg" style="color:var(--red)">4,320u</td>
+        <td class="r mono sosp-bg" style="color:var(--red)">-3,060u short</td>
+        <td class="sosp-bg"><div class="bar-wrap"><div class="bar-track"><div class="bar-fill fill-red" style="width:29.2%"></div></div><span class="bar-pct" style="color:var(--red)">29.2%</span></div></td>
+        <td><span class="pill p-green">~ 92.7% · BD + PU cleared wk4 · near-miss</span></td>
+      </tr>
+      <tr>
+        <td class="cat-cell">1g Disposables (AURA)</td><td class="r mono">1,800u</td>
+        <td class="r mono up-bg" style="color:var(--teal);font-weight:600">2,700u</td>
+        <td class="r mono" style="border-left:1px solid var(--border)">2,700 carry-in</td>
+        <td class="r mono up-bg" style="color:var(--green)">Target met ①</td>
+        <td class="up-bg"><div class="bar-wrap"><div class="bar-track"><div class="bar-fill fill-green" style="width:100%"></div></div><span class="bar-pct" style="color:var(--green)">100.0% ✓</span></div></td>
+        <td class="r mono sosp-bg" style="color:var(--red)">6,480u</td>
+        <td class="r mono sosp-bg" style="color:var(--red)">-3,780u short</td>
+        <td class="sosp-bg"><div class="bar-wrap"><div class="bar-track"><div class="bar-fill fill-amber" style="width:41.7%"></div></div><span class="bar-pct" style="color:var(--amber)">41.7%</span></div></td>
+        <td><span class="pill p-teal">✓ 100% RF Upside · carry-in covered full June target</span></td>
+      </tr>
+    </tbody>
+    <tfoot><tr class="tfoot">
+      <td class="cat-cell">TOTAL</td><td class="r mono">10,139u</td>
+      <td class="r mono up-bg" style="color:var(--teal)">14,499u</td>
+      <td class="r mono" style="border-left:1px solid var(--border)">16,290u</td>
+      <td class="r mono" style="background:var(--purple-l);color:#5B21B6;font-weight:700">+1,791u above</td>
+      <td style="background:var(--purple-l)"><div class="bar-wrap"><div class="bar-track"><div class="bar-fill fill-green" style="width:100%"></div></div><span class="bar-pct" style="color:#5B21B6;font-weight:700">112.4%</span></div></td>
+      <td class="r mono sosp-bg" style="color:var(--red)">35,100u</td>
+      <td class="r mono sosp-bg" style="color:var(--red)">-18,810u short</td>
+      <td class="sosp-bg"><div class="bar-wrap"><div class="bar-track"><div class="bar-fill fill-amber" style="width:46.4%"></div></div><span class="bar-pct" style="color:var(--amber)">46.4%</span></div></td>
+      <td></td>
+    </tr></tfoot>
+  </table></div>
+
+  <div class="ch-divider"></div>
+
+  <!-- RETAIL FINAL TABLE -->
+  <div class="sec-hdr">Retail Allocations — Final <span class="sec-tag">Distru · 9 FF locations · wks 2–4 confirmed · vs S&amp;OP only</span></div>
+  <div class="tbl-wrap"><table>
+    <thead><tr>
+      <th style="width:16%">Category</th>
+      <th class="r">5/27/26<span class="pend-badge">No delivery</span></th>
+      <th class="r">6/3/26<span class="conf-badge">✓</span></th>
+      <th class="r">6/10/26<span class="conf-badge">✓</span></th>
+      <th class="r">6/17/26<span class="conf-badge">✓</span></th>
+      <th class="r" style="border-left:1px solid var(--border)">Jun Units</th>
+      <th class="r">Jun Cases</th>
+      <th class="r sosp-col" style="border-left:1px solid #FECACA">S&amp;OP Target</th>
+      <th class="sosp-col" style="min-width:110px">vs S&amp;OP</th>
+      <th>Final Notes</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td class="cat-cell">3.5g Flower</td><td class="r mono zero">—</td>
+        <td class="r mono week-conf">810u / 27c</td><td class="r mono week-conf">60u / 2c</td><td class="r mono week-conf">2,204u / 73c</td>
+        <td class="r mono" style="border-left:1px solid var(--border);font-weight:700">3,074</td><td class="r mono">102.5</td>
+        <td class="r mono sosp-bg">17,600u</td>
+        <td class="sosp-bg"><div class="bar-wrap"><div class="bar-track"><div class="bar-fill fill-red" style="width:17.5%"></div></div><span class="bar-pct" style="color:var(--red)">17.5%</span></div></td>
+        <td style="font-size:11px;color:var(--ink3)">Irish Goodbye + Date Night both cleared for retail wk4 — strong surge</td>
+      </tr>
+      <tr>
+        <td class="cat-cell">7g Flower</td><td class="r mono zero">—</td>
+        <td class="r mono week-conf">120u / 4c</td><td class="r mono week-conf">1,020u / 34c</td><td class="r mono week-conf">1,107u / 37c</td>
+        <td class="r mono" style="border-left:1px solid var(--border);font-weight:700">2,247</td><td class="r mono">74.9</td>
+        <td class="r mono sosp-bg">10,800u</td>
+        <td class="sosp-bg"><div class="bar-wrap"><div class="bar-track"><div class="bar-fill fill-red" style="width:20.8%"></div></div><span class="bar-pct" style="color:var(--red)">20.8%</span></div></td>
+        <td style="font-size:11px;color:var(--ink3)">Couch Surfer · Cloud 9 · Homebody 7g · Jai Alai 7g across stores</td>
+      </tr>
+      <tr>
+        <td class="cat-cell">1g Prerolls</td><td class="r mono zero">—</td>
+        <td class="r mono week-conf">420u / 14c</td><td class="r mono week-conf">390u / 13c</td><td class="r mono week-conf">886u / 30c</td>
+        <td class="r mono" style="border-left:1px solid var(--border);font-weight:700">1,696</td><td class="r mono">56.5</td>
+        <td class="r mono sosp-bg">5,600u</td>
+        <td class="sosp-bg"><div class="bar-wrap"><div class="bar-track"><div class="bar-fill fill-red" style="width:30.3%"></div></div><span class="bar-pct" style="color:var(--red)">30.3%</span></div></td>
+        <td style="font-size:11px;color:var(--ink3)">Cloud 9 · AT · Pillow Talk · CS · Homebody 1g PRJ all active wk4</td>
+      </tr>
+      <tr>
+        <td class="cat-cell">0.5g 7pk PRJs</td><td class="r mono zero">—</td>
+        <td class="r mono week-conf">774u / 26c</td><td class="r mono week-conf">450u / 15c</td><td class="r mono week-conf">1,409u / 47c</td>
+        <td class="r mono" style="border-left:1px solid var(--border);font-weight:700">2,633</td><td class="r mono">87.8</td>
+        <td class="r mono sosp-bg">2,250u</td>
+        <td class="sosp-bg"><div class="bar-wrap"><div class="bar-track"><div class="bar-fill fill-green" style="width:100%"></div></div><span class="bar-pct" style="color:#5B21B6;font-weight:700">117.0% ✓</span></div></td>
+        <td style="font-size:11px;color:#5B21B6;font-weight:600">Super Chill · Freestyle · Golden Hour · Mint Condition · Umami OG · Pillow Talk · AT · CS · Cloud 9</td>
+      </tr>
+      <tr>
+        <td class="cat-cell">1g Vapes (510)</td><td class="r mono zero">—</td>
+        <td class="r mono week-conf">270u / 9c</td><td class="r mono week-conf">60u / 2c</td><td class="r mono week-conf">142u / 5c</td>
+        <td class="r mono" style="border-left:1px solid var(--border);font-weight:700">472</td><td class="r mono">15.7</td>
+        <td class="r mono sosp-bg">1,650u</td>
+        <td class="sosp-bg"><div class="bar-wrap"><div class="bar-track"><div class="bar-fill fill-red" style="width:28.6%"></div></div><span class="bar-pct" style="color:var(--red)">28.6%</span></div></td>
+        <td style="font-size:11px;color:var(--ink3)">Purple Urkle · Blue Dream · Cherry Bomb wk4</td>
+      </tr>
+      <tr>
+        <td class="cat-cell">1g Disposables (AURA)</td><td class="r mono zero">—</td>
+        <td class="r mono week-conf">240u / 8c</td><td class="r mono week-conf">420u / 14c</td><td class="r mono week-conf">390u / 13c</td>
+        <td class="r mono" style="border-left:1px solid var(--border);font-weight:700">1,050</td><td class="r mono">35.0</td>
+        <td class="r mono sosp-bg">3,600u</td>
+        <td class="sosp-bg"><div class="bar-wrap"><div class="bar-track"><div class="bar-fill fill-red" style="width:29.2%"></div></div><span class="bar-pct" style="color:var(--red)">29.2%</span></div></td>
+        <td style="font-size:11px;color:var(--ink3)">Sour Diesel · SLH · PE · Cake OG from carry-in + new batch</td>
+      </tr>
+    </tbody>
+    <tfoot><tr class="tfoot">
+      <td class="cat-cell">TOTAL</td><td class="r mono zero">—</td>
+      <td class="r mono week-conf">2,634u / 88c</td><td class="r mono week-conf">2,400u / 80c</td><td class="r mono week-conf">6,138u / 205c</td>
+      <td class="r mono" style="border-left:1px solid var(--border)">11,172</td><td class="r mono">372.4</td>
+      <td class="r mono sosp-bg">41,500u</td>
+      <td class="sosp-bg"><div class="bar-wrap"><div class="bar-track"><div class="bar-fill fill-red" style="width:26.9%"></div></div><span class="bar-pct" style="color:var(--red)">26.9%</span></div></td>
+      <td></td>
+    </tr></tfoot>
+  </table></div>
+
+  <div class="ch-divider"></div>
+
+  <!-- FINAL OBSERVATIONS -->
+  <div class="sec-hdr">June Final Observations</div>
+  <div class="obs-grid">
+    <div class="obs" style="border-left-color:#5B21B6;background:var(--purple-l)">
+      <div class="obs-title" style="color:#5B21B6">WS 112.4% RF Upside — first month to exceed reforecast ceiling</div>
+      <div class="obs-body">June finished at 16,290u against a 14,499u RF Upside target — +1,791u above. The RF Upside figures were built from H1 2026 actuals and were never intended as a ceiling. June proved the demand exists across every category when product clears testing. Flower variety was the unlock — Date Night and Irish Goodbye clearing simultaneously in wk4 drove the strongest single allocation week of the month for 3.5g.</div>
+    </div>
+    <div class="obs" style="border-left-color:#5B21B6;background:var(--purple-l)">
+      <div class="obs-title" style="color:#5B21B6">3.5g + 7g Flower both exceeded RF Upside targets</div>
+      <div class="obs-body">3.5g finished at 152.5% of RF Upside (5,550u / 3,639u) — Date Night 40c + Irish Goodbye 30c + Early Bird 20c all confirmed in wk4 for the biggest flower week of the month. 7g finished at 155.1% (2,910u / 1,876u) with all 3 SKUs active across the month. Both categories also crossed the S&amp;OP ceiling for 3.5g at 102.8% — confirming demand is there when product is available.</div>
+    </div>
+    <div class="obs green">
+      <div class="obs-title green">1g Vapes — 92.7% RF Upside · near-miss after held all month</div>
+      <div class="obs-body">SC and WC were held all month yet Blue Dream + Purple Urkle both confirmed in wk4 still got vapes to 92.7% of RF Upside (1,260u / 1,359u). A 99-unit miss. Had SC or WC cleared for even one week, vapes would have easily exceeded the RF Upside target. Strong signal for July — any additional vape SKU clearing converts directly above the reforecast floor.</div>
+    </div>
+    <div class="obs amber">
+      <div class="obs-title amber">1g Prerolls — 86.5% · PRJ variety gap cost the target</div>
+      <div class="obs-body">Prerolls ended at 86.5% of RF Upside (2,760u / 3,189u), missing by 429u. Cloud 9 PRJ cleared in wk4 (20c/600u) but 0 in wk3 meant the gap was too large to fully close. Pre-roll availability is directly tied to flower variety — the same structural constraint that limited 3.5g in weeks 1–2 flowed downstream to pre-rolls.</div>
+    </div>
+    <div class="obs amber">
+      <div class="obs-title amber">0.5g PRJs — 63.9% · Umami OG too late</div>
+      <div class="obs-body">Umami OG finally cleared in wk4 (10c/300u) but the 926u gap from 3 held weeks was too large to recover. 63.9% RF Upside (1,110u / 1,736u). The retail story tells a different tale — 0.5g PRJs were the only retail category to exceed S&amp;OP at 117.0% (2,633u / 2,250u), confirming strong sell-through demand when the SKU mix is deep enough.</div>
+    </div>
+    <div class="obs blue">
+      <div class="obs-title blue">Retail wk4 surge — 6,138u driven by flower clearances</div>
+      <div class="obs-body">The strongest retail delivery week of the month by far. 3.5g surged to 2,204u (Irish Goodbye + Date Night both clearing for retail). 0.5g PRJs hit 1,409u with 9 active SKUs. All 9 stores received deliveries across all categories. The pattern is clear: product clearing testing translates directly to immediate retail velocity — the constraint is upstream, not demand.</div>
+    </div>
+  </div>
+
+  <div class="ch-divider"></div>
+  <div class="sec-hdr">Strategic Observations <span class="sec-tag">Forward-looking · cultivation · operations · channel planning</span></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px">
+    <div class="obs" style="border-left-color:#4F46E5;grid-column:1/-1;background:linear-gradient(to right,#EEF2FF,#fff)">
+      <div class="obs-title" style="color:#4338CA;font-size:12px">FLOWER VARIETY — 3.5g &amp; 7g</div>
+      <div class="obs-body" style="font-size:12px;line-height:1.7;margin-top:6px">Wk4 confirmed the flower variety thesis in full — Date Night + Irish Goodbye clearing simultaneously drove the strongest 3.5g WS week of the month (90c/2,700u). 7g ended at 155.1% of RF Upside with 3 active strains driving consistent volume. Having 3–4 active strains per flower category running simultaneously is structurally what WS partners need to build carts above the $2,500 minimum and pull pre-rolls naturally alongside flower. The pre-roll constraint in weeks 3–4 was a direct downstream effect of limited flower variety earlier in the month.</div>
+    </div>
+    <div class="obs" style="border-left-color:#0891B2">
+      <div class="obs-title" style="color:#0E7490">INCREASING AVAILABLE OUTPUT</div>
+      <div class="obs-body" style="font-size:12px;line-height:1.7;margin-top:6px">WS finished June at 112.4% of RF Upside — the first month to exceed the reforecast ceiling. 3.5g Flower (152.5%) and 7g Flower (155.1%) both exceeded their targets. The RF Upside figures were built from H1 actuals and were not a ceiling — June proved the demand is there when product clears. A retail reforecast using May actuals as the floor would sharpen the wholesale demand signal for July forward.</div>
+    </div>
+    <div class="obs" style="border-left-color:#059669">
+      <div class="obs-title" style="color:#047857">ALLOCATION PLANNING (2 MENUS vs 1)</div>
+      <div class="obs-body" style="font-size:12px;line-height:1.7;margin-top:6px">WS allocations are internal inventory adjustment requests, not true organic wholesale demand. Distru synced both rooms to APEX but APEX required 2 accounts — duplicate APEX accounts in CT and GA. Fulfillment must split packages, create new packages, transfer inventory sources, and maintain ERP sync. A single menu and unified inventory source removes this entire layer.</div>
+    </div>
+    <div class="obs" style="border-left-color:#7C3AED">
+      <div class="obs-title" style="color:#6D28D9">ACUMATICA — CHANNEL INTEGRATION OPPORTUNITY</div>
+      <div class="obs-body" style="font-size:12px;line-height:1.7;margin-top:6px">Retail stores cannot sell what hasn't cleared testing and brand registration. The upstream bottleneck is shared by both channels. A unified inventory model in Acumatica — where approved inventory is visible to both channels simultaneously — would allow natural demand to determine product flow rather than requiring a manual allocation decision before either side can access it.</div>
+    </div>
+  </div>
+
+  <div class="footnote">
+    * WS case = 30 units · Source: Wholesale Menu Planning — all 4 tabs confirmed · Retail: Distru wks 6/3 + 6/10 + 6/17<br>
+    * Homebody: two separate SKUs — comffy|Flower 7g|Homebody (150u retail wk4 = 7g Flower) · comffy|PreRoll 1g|Homebody (60u retail wk4 = 1g Prerolls)<br>
+    * S&amp;OP (WS): FL350 5,400u · FL700 8,100u · PR100 5,400u · PR050 5,400u · Vape510 4,320u · AURA 6,480u = 35,100u<br>
+    * S&amp;OP (Retail): FL350 17,600u · FL700 10,800u · PR100 5,600u · PR050 2,250u · Vape 1,650u · AURA 3,600u = 41,500u<br>
+    * RF Upside (WS June): May Reforecast Summary — FL350 3,639u · FL700 1,876u · PR100 3,189u · PR050 1,736u · Vape510 1,359u · AURA 2,700u = 14,499u<br>
+    * ① AURA: 2,700u carry-forward from May · June RF Upside fully met · vs S&amp;OP = 2,700/6,480 = 41.7%<br>
+    * Base Case excluded · RF Upside is the active WS working target · June FINAL · Updated 6/17/26
   </div>
 </div>
 </div>
